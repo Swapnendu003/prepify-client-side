@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Modal from '@/components/Common/Modal'; // Ensure this path is correct
+import Modal from '@/components/Common/Modal'; 
 
 interface CardProps {
   heading: string;

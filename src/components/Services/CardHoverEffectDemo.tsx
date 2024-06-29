@@ -48,6 +48,6 @@ export const projects = [
     title: "Take Virtual Interview",
     description:
       "Prepare for success with virtual interviews that simulate real-world scenarios. Practice your skills in a supportive environment designed to boost your confidence and readiness.",
-    link: "https://example.com/virtual-interview",
+    link: "/interview",
   },
 ];
