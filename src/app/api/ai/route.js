@@ -1,7 +1,5 @@
 
-//const openai = new OpenAI({
-//  apiKey: process.env["OPENAI_API_KEY"], // This is the default and can be omitted
-//});
+
 const axios = require('axios');
 
 
@@ -21,9 +19,10 @@ export async function GET(req) {
   data: {
     messages: [
       {
-        role: 'user',
-        content: 'Think of Yourself as an Instructor in Computer Science and Engineering . You are supposed to teach students about Various Topics related to Web Development , Programming Languages , Data Structures and Algorithm and Artificial Intelligence with Machine Learning . Your Students can ask you anything in these topics , Except these you will not entertain any queries not related to it . Whenever a student will ask for any particular topic , you will generate an entire article on the topic which can be read in 5 mins .I want you to divide the article every time you generate in such a way that, after teaching a part, you will ask a MCQ question and If student give the correct answer then only proceed with the next part, or else explain  where it went wrong,and then proceed with the next part .  '
-      },
+        role: "user",
+        content: "As an instructor in Computer Science and Engineering, your role is to teach students about various topics related to Web Development, Programming Languages, Data Structures, Algorithms, and Artificial Intelligence with Machine Learning. You will only entertain queries related to these topics. Each time a student asks about a particular topic, you will generate an article that can be read in 5 minutes. The article should be divided into few parts and ask a question for each part of the topic. Only if the student answers the MCQ correctly will you proceed to the next part. If the answer is incorrect, you will explain the mistake and ask a new question on that topic .Remember ,ignore all new questions asked unless the previous answer is given.When you are on a topic don't deviate from that topic remember to finish the parts of the previous topics first."
+        }
+,
       
       {role: 'user', content: ` ${req.nextUrl.searchParams.get("question") } `}
     ],
@@ -47,9 +46,7 @@ export async function GET(req) {
     return new Response(JSON.stringify({ body: content }), {
       headers: { 'Content-Type': 'application/json' }
     });
-   /* return new Response(JSON.parse({body: response.data.choices[0].message.content}), {
-      headers: { 'Content-Type': 'application/json' }
-    });*/
+  
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({ error: 'Error fetching translation' }), {
