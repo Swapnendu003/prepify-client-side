@@ -45,7 +45,7 @@ const LoginForm = ({ onLogin }: { onLogin: () => void }) => {
         setTimeout(() => {
           setShowToast(false);
           onLogin();
-        }, 2000);
+        }, 500);
       } else {
         console.error('Unexpected response structure:', response);
       }

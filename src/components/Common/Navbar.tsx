@@ -1,5 +1,5 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import SignupFormDemo from '@/components/Sign-Up/sign-up';
 import LoginForm from '@/components/Sign-Up/log-in';
 import Avatar from 'react-avatar';
@@ -11,14 +11,23 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
 
+  useEffect(() => {
+    const storedIsSignedUp = localStorage.getItem('isSignedUp') === 'true';
+    const storedIsLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    setIsSignedUp(storedIsSignedUp);
+    setIsLoggedIn(storedIsLoggedIn);
+  }, []);
+
   const handleSignUp = () => {
     setIsSignedUp(true);
     setClicked(false);
+    localStorage.setItem('isSignedUp', 'true');
   };
 
   const handleLogin = () => {
     setIsLoggedIn(true);
     setClicked(false);
+    localStorage.setItem('isLoggedIn', 'true');
   };
 
   const clickHandler = (isSignUp: boolean) => {

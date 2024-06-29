@@ -22,12 +22,51 @@ api.interceptors.request.use((config) => {
 });
 
 const areasOfInterestOptions = [
-  { value: 'c', label: 'C' },
-  { value: 'react', label: 'React' },
-  { value: 'javascript', label: 'JavaScript' },
-  { value: 'node', label: 'Node.js' },
-  { value: 'python', label: 'Python' },
-  // Add more options as needed
+  { value: 'C', label: 'C' },
+  { value: 'REACT', label: 'React' },
+  { value: 'Javascript', label: 'JavaScript' },
+  { value: 'Node.Js', label: 'Node.js' },
+  { value: 'Python', label: 'Python' },
+  { value: 'Java', label: 'Java' },
+  { value: 'C++', label: 'C++' },
+  { value: 'C#', label: 'C#' },
+  { value: 'Ruby', label: 'Ruby' },
+  { value: 'PHP', label: 'PHP' },
+    { value: 'Swift', label: 'Swift' },
+    { value: 'Kotlin', label: 'Kotlin' },
+    { value: 'Dart', label: 'Dart' },
+    { value: 'Go', label: 'Go' },
+    { value: 'Rust', label: 'Rust' },
+    { value: 'Scala', label: 'Scala' },
+    { value: 'Haskell', label: 'Haskell' },
+    { value: 'R', label: 'R' },
+    { value: 'SQL', label: 'SQL' },
+    { value: 'MongoDB', label: 'MongoDB' },
+    { value: 'PostgreSQL', label: 'PostgreSQL' },
+    { value: 'MySQL', label: 'MySQL' },
+    { value: 'SQLite', label: 'SQLite' },
+    { value: 'Firebase', label: 'Firebase' },
+    { value: 'AWS', label: 'AWS' },
+    { value: 'Azure', label: 'Azure' },
+    { value: 'GCP', label: 'GCP' },
+    { value: 'Docker', label: 'Docker' },
+    { value: 'Kubernetes', label: 'Kubernetes' },
+    { value: 'Jenkins', label: 'Jenkins' },
+    { value: 'Git', label: 'Git' },
+    { value: 'CI/CD', label: 'CI/CD' },
+    { value: 'Agile', label: 'Agile' },
+    { value: 'Scrum', label: 'Scrum' },
+    { value: 'Kanban', label: 'Kanban' },
+    { value: 'TDD', label: 'TDD' },
+    { value: 'BDD', label: 'BDD' },
+    { value: 'DevOps', label: 'DevOps' },
+    { value: 'Microservices', label: 'Microservices' },
+    { value: 'REST', label: 'REST' },
+    { value: 'GraphQL', label: 'GraphQL' },
+    { value: 'WebSockets', label: 'WebSockets' },
+    { value: 'WebRTC', label: 'WebRTC' },
+    { value: 'WebAssembly', label: 'WebAssembly' },
+    { value: 'WebGL', label: 'WebGL' },
 ];
 
 const SignupFormDemo = ({ onSignUp }: { onSignUp: () => void }) => {
@@ -60,7 +99,7 @@ const SignupFormDemo = ({ onSignUp }: { onSignUp: () => void }) => {
             setTimeout(() => {
                 setShowToast(false);
                 onSignUp();
-            }, 2000);
+            }, 500);
         } else {
             console.error('Unexpected response structure:', response);
         }

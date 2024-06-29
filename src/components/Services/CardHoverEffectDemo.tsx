@@ -30,7 +30,7 @@ export const projects = [
     title: "Learn From Modules",
     description:
       "Dive into interactive modules designed to make learning engaging and effective. Master new skills at your own pace with insightful content tailored to your learning journey.",
-    link: "https://example.com/learn-modules",
+    link: "/modules",
   },
   {
     title: "Attend Quizzes & Earn $",
