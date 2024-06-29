@@ -1,8 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import SignupFormDemo from '@/components/Sign-Up/sign-up';
-import LoginForm from '@/components/Sign-Up/log-in';  
+import LoginForm from '@/components/Sign-Up/log-in';
 import Avatar from 'react-avatar';
+import Modal from '@/components/Sign-Up/modal';
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -23,6 +24,10 @@ const Navbar = () => {
   const clickHandler = (isSignUp: boolean) => {
     setShowSignUpForm(isSignUp);
     setClicked(!clicked);
+  };
+
+  const closeModal = () => {
+    setClicked(false);
   };
 
   return (
@@ -61,7 +66,7 @@ const Navbar = () => {
         <div className="navbar-end" style={{ gap: 20 }}>
           {!isSignedUp && !isLoggedIn && (
             <>
-              <p><a onClick={() => clickHandler(false)}>Login</a></p>
+              <a className="btn" style={{ backgroundColor: '#23A6F0', color: 'white' }} onClick={() => clickHandler(false)}>Login</a>
               <a className="btn" style={{ backgroundColor: '#23A6F0', color: 'white', marginRight: 100 }} onClick={() => clickHandler(true)}>Sign Up</a>
             </>
           )}
@@ -71,13 +76,13 @@ const Navbar = () => {
         </div>
       </div>
       <div className="golden-line"></div>
-      {clicked && (
-        showSignUpForm ? (
+      <Modal isOpen={clicked} onClose={closeModal}>
+        {showSignUpForm ? (
           <SignupFormDemo onSignUp={handleSignUp} />
         ) : (
           <LoginForm onLogin={handleLogin} />
-        )
-      )}
+        )}
+      </Modal>
     </>
   );
 }
