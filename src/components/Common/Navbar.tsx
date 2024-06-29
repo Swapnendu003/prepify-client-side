@@ -1,20 +1,28 @@
 'use client';
 import React, { useState } from 'react';
 import SignupFormDemo from '@/components/Sign-Up/sign-up';
+import LoginForm from '@/components/Sign-Up/log-in';  
 import Avatar from 'react-avatar';
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   const [isSignedUp, setIsSignedUp] = useState(false);
-
-  const clickHandler = () => {
-    console.log('clicked');
-    setClicked(!clicked);
-  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showSignUpForm, setShowSignUpForm] = useState(false);
 
   const handleSignUp = () => {
     setIsSignedUp(true);
     setClicked(false);
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    setClicked(false);
+  };
+
+  const clickHandler = (isSignUp: boolean) => {
+    setShowSignUpForm(isSignUp);
+    setClicked(!clicked);
   };
 
   return (
@@ -51,16 +59,25 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end" style={{ gap: 20 }}>
-          <p>Login</p>
-          {isSignedUp ? (
+          {!isSignedUp && !isLoggedIn && (
+            <>
+              <p><a onClick={() => clickHandler(false)}>Login</a></p>
+              <a className="btn" style={{ backgroundColor: '#23A6F0', color: 'white', marginRight: 100 }} onClick={() => clickHandler(true)}>Sign Up</a>
+            </>
+          )}
+          {(isSignedUp || isLoggedIn) && (
             <Avatar name="User Name" size="40" round={true} />
-          ) : (
-            <a className="btn" style={{ backgroundColor: '#23A6F0', color: 'white', marginRight: 100 }} onClick={clickHandler}>Sign Up</a>
           )}
         </div>
       </div>
       <div className="golden-line"></div>
-      {clicked && <SignupFormDemo onSignUp={handleSignUp} />}
+      {clicked && (
+        showSignUpForm ? (
+          <SignupFormDemo onSignUp={handleSignUp} />
+        ) : (
+          <LoginForm onLogin={handleLogin} />
+        )
+      )}
     </>
   );
 }
