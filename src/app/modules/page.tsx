@@ -1,10 +1,11 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
 import Card from '@/components/Services/MeteorsDemo';
 import { fetchUserData } from '@/utils/fetchUserData';
 
-const ModulesPage: React.FC = () => {
+const page: React.FC = () => {
   const [headings, setHeadings] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,11 +27,15 @@ const ModulesPage: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen" style={{height: "50vh"}}>
+        <span className="loading loading-infinity loading-lg"></span>
+      </div>
+    );
   }
 
   return (
-    <div className="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
+    <div className="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {headings.map((heading, index) => (
         <Card key={index} heading={heading} />
       ))}
@@ -38,4 +43,4 @@ const ModulesPage: React.FC = () => {
   );
 };
 
-export default ModulesPage;
+export default page;

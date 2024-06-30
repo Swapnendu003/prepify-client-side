@@ -31,11 +31,14 @@ const Navbar = () => {
   };
 
   const clickHandler = (isSignUp: boolean) => {
+    console.log('Button clicked:', isSignUp ? 'Sign Up' : 'Login');
     setShowSignUpForm(isSignUp);
-    setClicked(!clicked);
+    setClicked(true);
+    console.log('Modal should open:', isSignUp ? 'Sign Up' : 'Login');  // Add this log
   };
 
   const closeModal = () => {
+    console.log('Closing modal');
     setClicked(false);
   };
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -9,23 +8,20 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ content, onClose }) => {
-  return ReactDOM.createPortal(
-    <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
-      <div className="bg-white text-black rounded-lg p-6 max-w-lg mx-auto z-50 shadow-lg relative overflow-auto" style={{height: '40rem', width:"60rem"}}>
-        <h2 className="text-xl font-bold mb-4">Response</h2>
-        <div className="mb-6">
+  return (
+    <dialog id="my_modal_4" className="modal" open>
+      <div className="modal-box w-11/12 max-w-5xl text-black">
+        <h3 className="font-bold text-lg">Response</h3>
+        <div className="py-4">
           <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
         </div>
-        <button
-          onClick={onClose}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out"
-        >
-          Close
-        </button>
+        <div className="modal-action">
+          <button className="btn" onClick={onClose}>
+            Close
+          </button>
+        </div>
       </div>
-    </div>,
-    document.body
+    </dialog>
   );
 };
 
