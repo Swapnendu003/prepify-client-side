@@ -1,7 +1,7 @@
 
 # Tech Learning and Interview Preparation Platform
 # Node Backend for ML MODEL: https://github.com/sagnik-datta-02/back
-# Flask Backend for ML MODEL: https://github.com/sagnik-datta-02/Emotion_Analysis
+
 ## Overview
 Our platform revolutionizes technological education and interview preparation by providing personalized articles, immersive 3D classrooms, and adaptive mock interviews. Designed with accessibility in mind, it ensures an engaging and inclusive experience for all users, including differently-abled individuals.
 
